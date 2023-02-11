@@ -32,6 +32,7 @@ function RegisterForm({ user, updateUser }) {
           <Form.Control name="nickname" required placeholder="e.g. Cool_Kats" onChange={({ target }) => setFormData((prev) => ({ ...prev, [target.name]: target.value }))} />
           <Form.Text className="text-muted">***Username MUST be different from your first and last name</Form.Text>
           <div />
+          <br />
           <Form.Label className="text">Profile Image</Form.Label>
           <Form.Control name="profileImage" required placeholder="Image URL" onChange={({ target }) => setFormData((prev) => ({ ...prev, [target.name]: target.value }))} />
         </Form.Group>
