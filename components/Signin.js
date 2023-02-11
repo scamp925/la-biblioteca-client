@@ -8,19 +8,18 @@ function Signin() {
       className="text-center d-flex flex-column justify-content-center align-content-center"
       style={{
         height: '90vh',
-        padding: '30px',
+        padding: '0 400px',
         margin: '0 auto',
         zIndex: 1,
         minHeight: '25rem',
         width: '100%',
         minWidth: '30rem',
-        paddingBlock: '0 5rem',
       }}
     >
-      <h1>La Biblioteca</h1>
-      <p>Unlock the door to countless worlds then fall through</p>
+      <h1>la<strong>biblioteca</strong></h1>
+      <h5>Unlock the door to countless worlds then fall through</h5>
       <Button type="button" size="lg" className="copy-btn" onClick={signIn}>
-        Sign In
+        Enter In
       </Button>
     </div>
   );
