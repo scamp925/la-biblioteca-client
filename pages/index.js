@@ -1,12 +1,17 @@
 import { useEffect, useState } from 'react';
 import BookCard from '../components/cards/BookCard';
+import Search from '../components/Search';
 import { getAllBooks } from '../utils/data/bookData';
 
 function Home() {
   const [books, setBooks] = useState([]);
+  const [filteredBooks, setFilteredBooks] = useState([]);
 
   const getAllTheBooks = () => {
-    getAllBooks().then(setBooks);
+    getAllBooks().then((bookArray) => {
+      setBooks(bookArray);
+      setFilteredBooks(bookArray);
+    });
   };
 
   useEffect(() => {
@@ -16,8 +21,9 @@ function Home() {
   return (
     <div>
       <h2>Escape Your World: Dive Into Another One</h2>
+      <Search books={books} setFilteredBooks={setFilteredBooks} />
       <section className="all-books-container">
-        {books?.map((book) => (
+        {filteredBooks?.map((book) => (
           <BookCard key={book.id} bookObj={book} />
         ))}
       </section>

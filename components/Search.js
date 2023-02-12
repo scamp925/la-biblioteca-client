@@ -10,7 +10,7 @@ function Search({ books, setFilteredBooks }) {
   const handleChange = (e) => {
     const { value } = e.target;
     setSearchInput(value);
-    const results = books.filter((book) => book.title.toLowerCase().includes(value.toLowerCase()));
+    const results = books.filter((book) => book.title.toLowerCase().includes(value.toLowerCase()) || book.author.toLowerCase().includes(value.toLowerCase()));
     setFilteredBooks(results);
   };
 
@@ -20,7 +20,7 @@ function Search({ books, setFilteredBooks }) {
   };
 
   return (
-    <div>
+    <div className="search">
       <InputGroup className="mb-3">
         <Form.Control
           placeholder="Title/Author"
