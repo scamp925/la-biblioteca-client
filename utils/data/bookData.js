@@ -18,6 +18,7 @@ const getSingleBook = (bookId) => new Promise((resolve, reject) => {
       resolve({
         id: data.id,
         title: data.title,
+        author: data.author,
         coverImage: data.cover_image,
         description: data.description,
         length: data.length,

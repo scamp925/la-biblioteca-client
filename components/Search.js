@@ -21,6 +21,7 @@ function Search({ books, setFilteredBooks }) {
 
   return (
     <div className="search">
+      <h5>Search and Browse Books</h5>
       <InputGroup className="mb-3">
         <Form.Control
           placeholder="Title/Author"
