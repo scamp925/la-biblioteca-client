@@ -7,7 +7,7 @@ function BookCard({ bookObj }) {
   return (
     <div className="book-cards">
       <Link passHref href="/delete-me">
-        <Image src={bookObj.cover_image} alt={bookObj.title} width="150" height="200" />
+        <Image src={bookObj.cover_image} alt={bookObj.title} width="140" height="200" />
       </Link>
     </div>
   );
