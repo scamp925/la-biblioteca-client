@@ -16,7 +16,7 @@ function SingleBookCard({ bookObj, reviewObj }) {
           <Button variant="success">{bookObj.bookShelf ? 'Move to Another Shelf' : 'Add to My Books'}</Button>
         </Link>
         <Link passHref href="/reviews/new">
-          <Button variant="outline-success">{reviewObj.user.id === user.id ? 'Edit Your Review' : 'Rate This Book'}</Button>
+          <Button variant="outline-success">{reviewObj.user?.id === user.id ? 'Edit Your Review' : 'Rate This Book'}</Button>
         </Link>
       </aside>
       <main>
