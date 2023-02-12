@@ -14,7 +14,7 @@ function ReviewCard({ reviewObj }) {
         <p>{reviewObj.created_on}</p>
         <p>{reviewObj.content}</p>
       </div>
-      <div>{reviewObj.associated_reactions}</div>
+      {/* <div>{reviewObj.associated_reactions}</div> */}
     </div>
   );
 }

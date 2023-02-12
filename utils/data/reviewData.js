@@ -3,8 +3,8 @@ import { clientCredentials } from '../client';
 const dbUrl = clientCredentials.databaseURL;
 
 // GET ALL REVIEWS CARDS
-const getAllReviews = () => new Promise((resolve, reject) => {
-  fetch(`${dbUrl}/reviews`)
+const getAllBookReviews = (bookId) => new Promise((resolve, reject) => {
+  fetch(`${dbUrl}/reviews?book=${bookId}`)
     .then((response) => response.json())
     .then(resolve)
     .catch(reject);
@@ -29,6 +29,6 @@ const getSingleReview = (reviewId) => new Promise((resolve, reject) => {
 });
 
 export {
-  getAllReviews,
+  getAllBookReviews,
   getSingleReview,
 };
