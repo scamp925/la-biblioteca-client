@@ -1,11 +1,11 @@
 @import 'bootstrap/dist/css/bootstrap.css';
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@100;300&display=swap');
 
 html,
 body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family: "Lato", "Helvetica Neue", "Helvetica", sans-serif;
 }
 
 a {
@@ -18,5 +18,28 @@ a {
 }
 
 body {
-  background-color: #88effd;
+  background-color: #ffffff;
+}
+
+h1 {
+  color: #3d2814;
+}
+
+h3 {
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+/* NAVBAR */
+.color-nav {
+  background-color: #f4f2e9;
+}
+
+.nav-text {
+  color: #3d2814;
+}
+
+.link-border {
+  border-bottom: solid #3d2814 1px;
+  margin-left: 10px;
 }

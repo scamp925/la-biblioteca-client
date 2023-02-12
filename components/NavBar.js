@@ -5,31 +5,50 @@ import {
   Navbar, //
   Container,
   Nav,
-  Button,
+  NavDropdown,
 } from 'react-bootstrap';
 import { signOut } from '../utils/auth';
+import { useAuth } from '../utils/context/authContext';
 
 export default function NavBar() {
+  const { user } = useAuth();
   return (
-    <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+    <Navbar collapseOnSelect expand="lg" className="color-nav" variant="light">
       <Container>
         <Link passHref href="/">
-          <Navbar.Brand>CHANGE ME</Navbar.Brand>
+          <Navbar.Brand><h1>la<strong>biblioteca</strong></h1></Navbar.Brand>
         </Link>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
-          <Nav className="me-auto">
-            {/* CLOSE NAVBAR ON LINK SELECTION: https://stackoverflow.com/questions/72813635/collapse-on-select-react-bootstrap-navbar-with-nextjs-not-working */}
-            <Link passHref href="/">
-              <Nav.Link>Home</Nav.Link>
-            </Link>
-            <Link passHref href="/delete-me">
-              <Nav.Link>Delete Me</Nav.Link>
-            </Link>
-            <Button variant="danger" onClick={signOut}>
-              Sign Out
-            </Button>
-          </Nav>
+          {user.nickname ? (
+            <Nav className="me-auto">
+              {/* CLOSE NAVBAR ON LINK SELECTION: https://stackoverflow.com/questions/72813635/collapse-on-select-react-bootstrap-navbar-with-nextjs-not-working */}
+              <Link passHref href="/">
+                <Nav.Link className="nav-text">Home</Nav.Link>
+              </Link>
+              <NavDropdown title="My Books" id="basic-nav-dropdown" className="nav-text">
+                <Link passHref href="/wantToRead">
+                  <NavDropdown.Item>Want To Read</NavDropdown.Item>
+                </Link>
+                <Link passHref href="/currentlyReading">
+                  <NavDropdown.Item>Currently Reading</NavDropdown.Item>
+                </Link>
+                <Link passHref href="/read">
+                  <NavDropdown.Item>Read</NavDropdown.Item>
+                </Link>
+              </NavDropdown>
+              <Link passHref href="/">
+                <Nav.Link onClick={signOut} className="nav-text">Sign Out</Nav.Link>
+              </Link>
+            </Nav>
+          ) : (
+            <Nav>
+              <Navbar.Text className="nav-text">Opps! Need to go back?</Navbar.Text>
+              <Link passHref href="/">
+                <Nav.Link onClick={signOut} className="nav-text link-border">Go Back</Nav.Link>
+              </Link>
+            </Nav>
+          )}
         </Navbar.Collapse>
       </Container>
     </Navbar>
