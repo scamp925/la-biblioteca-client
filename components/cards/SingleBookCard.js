@@ -8,7 +8,7 @@ function SingleBookCard({ bookObj }) {
   return (
     <div>
       <aside>
-        <Image src={bookObj.coverImage} alt={bookObj.title} width="140" height="200" />
+        <Image src={bookObj.coverImage} alt={bookObj.title} width="240" height="350" />
         {bookObj.bookShelf ? <p>On You {bookObj.bookShelf} Shelf</p> : ''}
         <Link passHref href="/shelves/new">
           <Button variant="success">{bookObj.bookShelf ? 'Move to Another Shelf' : 'Add to My Books'}</Button>
@@ -18,13 +18,6 @@ function SingleBookCard({ bookObj }) {
         </Link>
       </aside>
       <main>
-        <ul>
-          <li><h1>{bookObj.title}</h1></li>
-          <li><h2>{bookObj.author}</h2></li>
-          <li><p>{bookObj.description}</p></li>
-          <li><p>{bookObj.length} pages</p></li>
-          <li><p>First published {bookObj.firstPublished}</p></li>
-        </ul>
         <h1>{bookObj.title}</h1>
         <h2>{bookObj.author}</h2>
         <p>{bookObj.description}</p>
