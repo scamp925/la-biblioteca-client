@@ -20,7 +20,7 @@ function Home() {
 
   return (
     <div>
-      <h2>Escape Your World: Dive Into Another One</h2>
+      <h3>Escape Your World: Dive Into Another One</h3>
       <Search books={books} setFilteredBooks={setFilteredBooks} />
       <section className="all-books-container">
         {filteredBooks?.map((book) => (
