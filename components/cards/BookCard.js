@@ -5,9 +5,9 @@ import Link from 'next/link';
 
 function BookCard({ bookObj }) {
   return (
-    <div>
-      <Link passHref href="/currentlyReading">
-        <Image src={bookObj.coverImage} alt={bookObj.title} width="450" height="500" />
+    <div className="book-cards">
+      <Link passHref href="/delete-me">
+        <Image src={bookObj.cover_image} alt={bookObj.title} width="150" height="200" />
       </Link>
     </div>
   );
@@ -15,8 +15,9 @@ function BookCard({ bookObj }) {
 
 BookCard.propTypes = {
   bookObj: PropTypes.shape({
+    id: PropTypes.number,
     title: PropTypes.string,
-    coverImage: PropTypes.string,
+    cover_image: PropTypes.string,
   }).isRequired,
 };
 
