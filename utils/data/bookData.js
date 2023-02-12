@@ -18,11 +18,11 @@ const getSingleBook = (bookId) => new Promise((resolve, reject) => {
       resolve({
         id: data.id,
         title: data.title,
+        coverImage: data.cover_image,
         description: data.description,
-        imageUrl: data.image_url,
-        price: data.price,
-        quantity: data.quantity,
-        seller: data.seller,
+        length: data.length,
+        firstPublished: data.first_published,
+        bookShelf: data.book_shelf,
       });
     })
     .catch(reject);
