@@ -19,6 +19,7 @@ export default function SingleBook() {
   return (
     <div>
       <SingleBookCard bookObj={book} />
+      <h4>Community Reviews</h4>
     </div>
   );
 }
