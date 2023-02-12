@@ -3,8 +3,10 @@ import PropTypes from 'prop-types';
 import Image from 'react-bootstrap/Image';
 import Link from 'next/link';
 import Button from 'react-bootstrap/Button';
+import { useAuth } from '../../utils/context/authContext';
 
-function SingleBookCard({ bookObj }) {
+function SingleBookCard({ bookObj, reviewObj }) {
+  const { user } = useAuth();
   return (
     <div>
       <aside>
@@ -14,7 +16,7 @@ function SingleBookCard({ bookObj }) {
           <Button variant="success">{bookObj.bookShelf ? 'Move to Another Shelf' : 'Add to My Books'}</Button>
         </Link>
         <Link passHref href="/reviews/new">
-          <Button variant="outline-success">Add a Review</Button>
+          <Button variant="outline-success">{reviewObj.user.id === user.id ? 'Edit Your Review' : 'Rate This Book'}</Button>
         </Link>
       </aside>
       <main>
@@ -38,6 +40,11 @@ SingleBookCard.propTypes = {
     length: PropTypes.number,
     firstPublished: PropTypes.string,
     bookShelf: PropTypes.string,
+  }).isRequired,
+  reviewObj: PropTypes.shape({
+    user: PropTypes.shape({
+      id: PropTypes.number,
+    }),
   }).isRequired,
 };
 

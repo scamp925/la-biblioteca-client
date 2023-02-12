@@ -27,7 +27,7 @@ export default function SingleBook() {
 
   return (
     <div>
-      <SingleBookCard bookObj={book} />
+      <SingleBookCard bookObj={book} reviewObj={reviews} />
       <h4>Community Reviews</h4>
       <div>
         {reviews.length === 0 && <><p>No Reviews Yet</p><p>Be the first to add one by clicking "Add a Review" above.</p></>}
