@@ -44,7 +44,8 @@ function ReviewForm({ bookId }) {
   return (
     <div>
       <Form onSubmit={handleSubmit}>
-        <div className="event-form-star-rating-div">
+        <div className="review-form-star-rating-div">
+          <h4>My Rating</h4>
           <Rating
             allowHover={false}
             size={50}
