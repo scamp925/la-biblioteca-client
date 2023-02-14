@@ -7,7 +7,7 @@ import { Rating } from 'react-simple-star-rating';
 import { useAuth } from '../../utils/context/authContext';
 import { createReview } from '../../utils/data/reviewData';
 
-function ReviewForm({ bookId }) {
+function ReviewForm({ reviewObj, bookId }) {
   const date = new Date().toISOString().slice(0, 10);
   const [formInput, setFormInput] = useState({
     starRating: 0,
@@ -56,13 +56,12 @@ function ReviewForm({ bookId }) {
         <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
           <Form.Control as="textarea" rows={3} type="text" placeholder="Write a review" name="content" value={formInput.content} onChange={handleChange} />
         </Form.Group>
-        <Button type="submit" variant="success">Add My Review</Button>
-        {/* <div className="form-btn">
+        <div className="form-btns">
           <Button type="submit" variant="success">{reviewObj?.id ? 'Update' : 'Add'} My Review</Button>
-        </div> */}
-        <Button variant="danger" onClick={() => router.push(`/books/${bookId}`)}>
-          Nevermind
-        </Button>
+          <Button variant="danger" onClick={() => router.push(`/books/${bookId}`)}>
+            Nevermind
+          </Button>
+        </div>
       </Form>
     </div>
   );
