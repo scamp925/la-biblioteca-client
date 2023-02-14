@@ -7,13 +7,13 @@ import { Rating } from 'react-simple-star-rating';
 import { useAuth } from '../../utils/context/authContext';
 import { createReview } from '../../utils/data/reviewData';
 
-function ReviewForm({ bookObj }) {
+function ReviewForm({ bookId }) {
   const [formInput, setFormInput] = useState({
     starRating: 0,
     content: '',
     createdOn: '',
-    bookId: 0,
-    customerId: 0,
+    bookId: '',
+    user: 0,
   });
   const { user } = useAuth();
   const router = useRouter();
@@ -36,8 +36,8 @@ function ReviewForm({ bookObj }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    createReview(bookObj.id, user, formInput).then(() => {
-      router.push(`/books/${bookObj.id}`);
+    createReview(bookId, user, formInput).then(() => {
+      router.push(`/books/${bookId}`);
     });
   };
 
@@ -75,9 +75,7 @@ ReviewForm.propTypes = {
       id: PropTypes.number,
     }),
   }).isRequired,
-  bookObj: PropTypes.shape({
-    id: PropTypes.number,
-  }).isRequired,
+  bookId: PropTypes.number.isRequired,
 };
 
 export default ReviewForm;
