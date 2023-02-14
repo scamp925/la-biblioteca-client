@@ -3,10 +3,8 @@ import PropTypes from 'prop-types';
 import Image from 'react-bootstrap/Image';
 import Link from 'next/link';
 import Button from 'react-bootstrap/Button';
-import { useAuth } from '../../utils/context/authContext';
 
 function SingleBookCard({ bookObj, reviewObj }) {
-  const { user } = useAuth();
   const date = new Date(bookObj.firstPublished);
   const dateOptions = { year: 'numeric', month: 'long', day: 'numeric' };
   return (
@@ -17,8 +15,8 @@ function SingleBookCard({ bookObj, reviewObj }) {
         <Link passHref href="/shelves/new">
           <Button variant="success">{bookObj.bookShelf ? 'Move to Another Shelf' : 'Add to My Books'}</Button>
         </Link>
-        <Link passHref href={reviewObj.user?.id === user.id ? `/reviews/edit/${bookObj.id}` : `/reviews/new/${bookObj.id}`}>
-          <Button variant="outline-success">{reviewObj.user?.id === user.id ? 'Edit Your Review' : 'Rate This Book'}</Button>
+        <Link passHref href={reviewObj ? `/reviews/edit/${bookObj.id}` : `/reviews/new/${bookObj.id}`}>
+          <Button variant="outline-success">{reviewObj ? 'Edit Your Review' : 'Rate This Book'}</Button>
         </Link>
       </aside>
       <main>
