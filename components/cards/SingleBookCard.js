@@ -7,6 +7,8 @@ import { useAuth } from '../../utils/context/authContext';
 
 function SingleBookCard({ bookObj, reviewObj }) {
   const { user } = useAuth();
+  const date = new Date(bookObj.firstPublished);
+  const dateOptions = { year: 'numeric', month: 'long', day: 'numeric' };
   return (
     <div>
       <aside>
@@ -24,7 +26,7 @@ function SingleBookCard({ bookObj, reviewObj }) {
         <h2>{bookObj.author}</h2>
         <p>{bookObj.description}</p>
         <p>{bookObj.length} pages</p>
-        <p>First published {bookObj.firstPublished}</p>
+        <p>First published {date.toLocaleDateString(undefined, dateOptions)}</p>
       </main>
     </div>
   );
