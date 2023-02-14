@@ -4,6 +4,8 @@ import Image from 'react-bootstrap/Image';
 import { Rating } from 'react-simple-star-rating';
 
 function ReviewCard({ reviewObj }) {
+  const date = new Date(reviewObj.created_on);
+  const dateOptions = { year: 'numeric', month: 'long', day: 'numeric' };
   return (
     <div>
       <div>
@@ -20,7 +22,7 @@ function ReviewCard({ reviewObj }) {
           size={20}
           readonly
         />
-        <p>{reviewObj.created_on}</p>
+        <p>{date.toLocaleDateString(undefined, dateOptions)}</p>
         <p>{reviewObj.content}</p>
       </div>
       {/* <div>{reviewObj.associated_reactions}</div> */}
