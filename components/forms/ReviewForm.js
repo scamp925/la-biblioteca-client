@@ -8,12 +8,11 @@ import { useAuth } from '../../utils/context/authContext';
 import { createReview } from '../../utils/data/reviewData';
 
 function ReviewForm({ bookId }) {
+  const date = new Date().toISOString().slice(0, 10);
   const [formInput, setFormInput] = useState({
     starRating: 0,
     content: '',
-    createdOn: '',
-    bookId: '',
-    user: 0,
+    createdOn: date,
   });
   const { user } = useAuth();
   const router = useRouter();
@@ -69,14 +68,19 @@ function ReviewForm({ bookId }) {
 ReviewForm.propTypes = {
   reviewObj: PropTypes.shape({
     id: PropTypes.number,
-    starRating: PropTypes.string,
+    starRating: PropTypes.number,
     content: PropTypes.string,
     createdOn: PropTypes.string,
     user: PropTypes.shape({
       id: PropTypes.number,
     }),
-  }).isRequired,
-  bookId: PropTypes.number.isRequired,
+  }),
+  bookId: PropTypes.string,
+};
+
+ReviewForm.defaultProps = {
+  reviewObj: {},
+  bookId: '',
 };
 
 export default ReviewForm;
