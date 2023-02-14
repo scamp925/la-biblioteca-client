@@ -34,7 +34,7 @@ const createReview = (book, user, review) => new Promise((resolve, reject) => {
     star_rating: Number(review.starRating),
     content: review.content,
     created_on: review.createdOn,
-    book: book.id,
+    bookId: book.id,
     user_id: user.id,
   };
   fetch(`${clientCredentials.databaseURL}/reviews`, {
