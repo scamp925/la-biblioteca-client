@@ -49,8 +49,27 @@ const createReview = (book, user, review) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
+// UPDATE SINGLE REVIEW
+const updateReview = (review, id) => new Promise((resolve, reject) => {
+  const reviewObj = {
+    star_rating: Number(review.starRating),
+    content: review.content,
+    created_on: review.createdOn,
+  };
+  fetch(`${clientCredentials.databaseURL}/reviews/${id}`, {
+    method: 'PUT',
+    headers: {
+      'content-type': 'application/json',
+    },
+    body: JSON.stringify(reviewObj),
+  })
+    .then((response) => resolve(response))
+    .catch(reject);
+});
+
 export {
   getAllBookReviews,
   getSingleReview,
   createReview,
+  updateReview,
 };
