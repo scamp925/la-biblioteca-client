@@ -15,7 +15,7 @@ function SingleBookCard({ bookObj, reviewObj }) {
         <Link passHref href="/shelves/new">
           <Button variant="success">{bookObj.bookShelf ? 'Move to Another Shelf' : 'Add to My Books'}</Button>
         </Link>
-        <Link passHref href={reviewObj ? `/reviews/edit/${bookObj.id}` : `/reviews/new/${bookObj.id}`}>
+        <Link passHref href={reviewObj ? `/reviews/edit/${reviewObj.id}` : `/reviews/new/${bookObj.id}`}>
           <Button variant="outline-success">{reviewObj ? 'Edit Your Review' : 'Rate This Book'}</Button>
         </Link>
       </aside>
@@ -42,10 +42,12 @@ SingleBookCard.propTypes = {
     bookShelf: PropTypes.string,
   }).isRequired,
   reviewObj: PropTypes.shape({
-    user: PropTypes.shape({
-      id: PropTypes.number,
-    }),
-  }).isRequired,
+    id: PropTypes.number,
+  }),
+};
+
+SingleBookCard.defaultProps = {
+  reviewObj: {},
 };
 
 export default SingleBookCard;

@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { useRouter } from 'next/router';
 import Form from 'react-bootstrap/Form';
 import { Button } from 'react-bootstrap';
 import { Rating } from 'react-simple-star-rating';
 import { useAuth } from '../../utils/context/authContext';
-import { createReview } from '../../utils/data/reviewData';
+import { createReview, updateReview } from '../../utils/data/reviewData';
 
 function ReviewForm({ reviewObj, bookId }) {
   const date = new Date().toISOString().slice(0, 10);
@@ -35,10 +35,18 @@ function ReviewForm({ reviewObj, bookId }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    createReview(bookId, user, formInput).then(() => {
-      router.push(`/books/${bookId}`);
-    });
+    if (reviewObj?.id) {
+      updateReview(formInput, reviewObj.id).then(() => router.push(`/books/${reviewObj.book.id}`));
+    } else {
+      createReview(bookId, user, formInput).then(() => {
+        router.push(`/books/${bookId}`);
+      });
+    }
   };
+
+  useEffect(() => {
+    if (reviewObj?.id) setFormInput(reviewObj);
+  }, [reviewObj, user]);
 
   return (
     <div>
@@ -73,6 +81,9 @@ ReviewForm.propTypes = {
     starRating: PropTypes.number,
     content: PropTypes.string,
     createdOn: PropTypes.string,
+    book: PropTypes.shape({
+      id: PropTypes.number,
+    }),
     user: PropTypes.shape({
       id: PropTypes.number,
     }),
