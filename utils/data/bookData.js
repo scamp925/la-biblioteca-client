@@ -11,8 +11,8 @@ const getAllBooks = () => new Promise((resolve, reject) => {
 });
 
 // GET SINGLE BOOK
-const getSingleBook = (bookId) => new Promise((resolve, reject) => {
-  fetch(`${dbUrl}/books/${bookId}`)
+const getSingleBook = (bookId, user) => new Promise((resolve, reject) => {
+  fetch(`${dbUrl}/books/${bookId}?user=${user}`)
     .then((response) => response.json())
     .then((data) => {
       resolve({

@@ -16,7 +16,7 @@ export default function SingleBook() {
   const [reviews, setReviews] = useState([]);
 
   const singleBook = () => {
-    getSingleBook(id).then(setBook);
+    getSingleBook(id, user.id).then(setBook);
   };
 
   const getReviews = () => {
