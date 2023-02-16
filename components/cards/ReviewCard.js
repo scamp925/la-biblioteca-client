@@ -4,12 +4,22 @@ import Image from 'react-bootstrap/Image';
 import Link from 'next/link';
 import { Rating } from 'react-simple-star-rating';
 import { FaEdit, FaTrash } from 'react-icons/fa';
+import { useRouter } from 'next/router';
 import { useAuth } from '../../utils/context/authContext';
+import { deleteReview } from '../../utils/data/reviewData';
 
-function ReviewCard({ reviewObj }) {
+function ReviewCard({ reviewObj, onUpdate }) {
   const { user } = useAuth();
   const date = new Date(reviewObj.created_on);
   const dateOptions = { year: 'numeric', month: 'long', day: 'numeric' };
+  const router = useRouter();
+  const deleteThisReview = () => {
+    if (window.confirm(`Heads up! You are about to permanently delete your review for ${reviewObj.book.title}. Click "OK" if you wish to continue.`)) {
+      deleteReview(reviewObj.id).then(() => onUpdate()).then(() => {
+        router.push(`/books/${reviewObj.book.id}`);
+      });
+    }
+  };
   return (
     <div>
       <div>
@@ -35,7 +45,7 @@ function ReviewCard({ reviewObj }) {
           <FaEdit size={26} />
         </Link>
         <Link passHref href="/">
-          <FaTrash size={26} />
+          <FaTrash size={26} onClick={deleteThisReview} />
         </Link>
       </div>
       )}
@@ -52,6 +62,7 @@ ReviewCard.propTypes = {
     created_on: PropTypes.string,
     book: PropTypes.shape({
       id: PropTypes.number,
+      title: PropTypes.string,
     }),
     user: PropTypes.shape({
       id: PropTypes.number,
@@ -64,6 +75,7 @@ ReviewCard.propTypes = {
       image_url: PropTypes.string,
     })),
   }).isRequired,
+  onUpdate: PropTypes.func.isRequired,
 };
 
 export default ReviewCard;

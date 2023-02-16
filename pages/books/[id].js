@@ -38,7 +38,7 @@ export default function SingleBook() {
         {reviews.length === 0 && <><p>No Reviews Yet</p><p>Be the first to add one by clicking "Rate This Book" above.</p></>}
       </div>
       {reviews?.map((review) => (
-        <ReviewCard key={review.id} reviewObj={review} />
+        <ReviewCard key={review.id} reviewObj={review} onUpdate={getReviews} />
       ))}
     </div>
   );
