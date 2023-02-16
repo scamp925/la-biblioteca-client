@@ -4,8 +4,10 @@ import Image from 'react-bootstrap/Image';
 import Link from 'next/link';
 import { Rating } from 'react-simple-star-rating';
 import { FaEdit, FaTrash } from 'react-icons/fa';
+import { useAuth } from '../../utils/context/authContext';
 
 function ReviewCard({ reviewObj }) {
+  const { user } = useAuth();
   const date = new Date(reviewObj.created_on);
   const dateOptions = { year: 'numeric', month: 'long', day: 'numeric' };
   return (
@@ -27,6 +29,7 @@ function ReviewCard({ reviewObj }) {
         <p>{date.toLocaleDateString(undefined, dateOptions)}</p>
         <p>{reviewObj.content}</p>
       </div>
+      {reviewObj.user.id === user.id && (
       <div>
         <Link passHref href={`/reviews/edit/${reviewObj.id}`}>
           <FaEdit size={26} />
@@ -35,6 +38,7 @@ function ReviewCard({ reviewObj }) {
           <FaTrash size={26} />
         </Link>
       </div>
+      )}
       {/* <div>{reviewObj.associated_reactions}</div> */}
     </div>
   );
