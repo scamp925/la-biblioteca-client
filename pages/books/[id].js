@@ -23,7 +23,7 @@ export default function SingleBook() {
     getAllBookReviews(id).then(setReviews);
   };
 
-  const findUserReview = reviews.filter((review) => review.user.id === user.id);
+  const findUserReview = reviews.find((review) => review.user.id === user.id);
 
   useEffect(() => {
     singleBook();
@@ -32,7 +32,7 @@ export default function SingleBook() {
 
   return (
     <div>
-      <SingleBookCard bookObj={book} reviewObj={findUserReview[0]} />
+      <SingleBookCard bookObj={book} reviewObj={findUserReview} />
       <h4>Community Reviews</h4>
       <div>
         {reviews.length === 0 && <><p>No Reviews Yet</p><p>Be the first to add one by clicking "Rate This Book" above.</p></>}

@@ -3,20 +3,22 @@ import PropTypes from 'prop-types';
 import Image from 'react-bootstrap/Image';
 import Link from 'next/link';
 import Button from 'react-bootstrap/Button';
+import { useAuth } from '../../utils/context/authContext';
 
 function SingleBookCard({ bookObj, reviewObj }) {
+  const { user } = useAuth();
   const date = new Date(bookObj.firstPublished);
   const dateOptions = { year: 'numeric', month: 'long', day: 'numeric' };
   return (
     <div>
       <aside>
-        <Image src={bookObj.coverImage} alt={bookObj.title} width="240" height="350" />
+        <Image src={bookObj.cover_image} alt={bookObj.title} width="240" height="350" />
         {bookObj.bookShelf ? <p>On You {bookObj.bookShelf} Shelf</p> : ''}
         <Link passHref href="/shelves/new">
           <Button variant="success">{bookObj.bookShelf ? 'Move to Another Shelf' : 'Add to My Books'}</Button>
         </Link>
-        <Link passHref href={reviewObj ? `/reviews/edit/${bookObj.id}` : `/reviews/new/${bookObj.id}`}>
-          <Button variant="outline-success">{reviewObj ? 'Edit Your Review' : 'Rate This Book'}</Button>
+        <Link passHref href={reviewObj.id ? `/reviews/edit/${reviewObj.id}` : `/reviews/new/${bookObj.id}`}>
+          <Button variant="outline-success">{reviewObj.user?.id === user.id ? 'Edit Your Review' : 'Rate This Book'}</Button>
         </Link>
       </aside>
       <main>
@@ -35,17 +37,22 @@ SingleBookCard.propTypes = {
     id: PropTypes.number,
     title: PropTypes.string,
     author: PropTypes.string,
-    coverImage: PropTypes.string,
+    cover_image: PropTypes.string,
     description: PropTypes.string,
     length: PropTypes.number,
     firstPublished: PropTypes.string,
     bookShelf: PropTypes.string,
   }).isRequired,
   reviewObj: PropTypes.shape({
+    id: PropTypes.number,
     user: PropTypes.shape({
       id: PropTypes.number,
     }),
-  }).isRequired,
+  }),
+};
+
+SingleBookCard.defaultProps = {
+  reviewObj: {},
 };
 
 export default SingleBookCard;
