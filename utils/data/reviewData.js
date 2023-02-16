@@ -67,9 +67,22 @@ const updateReview = (review, id) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
+// DELETE SINGLE REVIEW
+const deleteReview = (reviewId) => new Promise((resolve, reject) => {
+  fetch(`${clientCredentials.databaseURL}/reviews/${reviewId}`, {
+    method: 'DELETE',
+    headers: {
+      'content-type': 'application/json',
+    },
+  })
+    .then((response) => resolve(response))
+    .catch(reject);
+});
+
 export {
   getAllBookReviews,
   getSingleReview,
   createReview,
   updateReview,
+  deleteReview,
 };
