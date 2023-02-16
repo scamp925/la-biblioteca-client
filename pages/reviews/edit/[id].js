@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import { getSingleReview } from '../../../utils/data/reviewData';
 import ReviewForm from '../../../components/forms/ReviewForm';
-// import BookSnippetCard from '../../../components/cards/BookSnippetCard';
+import BookSnippetCard from '../../../components/cards/BookSnippetCard';
 
 function EditReviewForm() {
   const [editItem, setEditItem] = useState();
@@ -20,7 +20,7 @@ function EditReviewForm() {
 
   return (
     <div>
-      {/* <BookSnippetCard bookObj={} /> */}
+      <BookSnippetCard bookObj={editItem?.book} />
       <ReviewForm reviewObj={editItem} bookId={editItem?.book.id} />
     </div>
   );
