@@ -12,12 +12,12 @@ function SingleBookCard({ bookObj, reviewObj }) {
   return (
     <div>
       <aside>
-        <Image src={bookObj.coverImage} alt={bookObj.title} width="240" height="350" />
+        <Image src={bookObj.cover_image} alt={bookObj.title} width="240" height="350" />
         {bookObj.bookShelf ? <p>On You {bookObj.bookShelf} Shelf</p> : ''}
         <Link passHref href="/shelves/new">
           <Button variant="success">{bookObj.bookShelf ? 'Move to Another Shelf' : 'Add to My Books'}</Button>
         </Link>
-        <Link passHref href={reviewObj ? `/reviews/edit/${reviewObj.id}` : `/reviews/new/${bookObj.id}`}>
+        <Link passHref href={reviewObj.id ? `/reviews/edit/${reviewObj.id}` : `/reviews/new/${bookObj.id}`}>
           <Button variant="outline-success">{reviewObj.user?.id === user.id ? 'Edit Your Review' : 'Rate This Book'}</Button>
         </Link>
       </aside>
@@ -37,7 +37,7 @@ SingleBookCard.propTypes = {
     id: PropTypes.number,
     title: PropTypes.string,
     author: PropTypes.string,
-    coverImage: PropTypes.string,
+    cover_image: PropTypes.string,
     description: PropTypes.string,
     length: PropTypes.number,
     firstPublished: PropTypes.string,
