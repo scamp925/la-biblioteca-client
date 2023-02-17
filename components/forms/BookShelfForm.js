@@ -28,6 +28,13 @@ function BookShelfForm({ bookObj }) {
       updateShelf(bookObj.id, formInput.bookShelf, user.id)
         .then(() => router.push(`/books/${bookObj.id}`));
     } else {
+      if (formInput.bookShelf === 'Want to Read') {
+        formInput.bookShelf = 1;
+      } else if (formInput.bookShelf === 'Currently Reading') {
+        formInput.bookShelf = 2;
+      } else if (formInput.bookShelf === 'Read') {
+        formInput.bookShelf = 3;
+      }
       addToShelf(bookObj.id, formInput.bookShelf, user.id).then(() => {
         router.push(`/books/${bookObj.id}`);
       });
