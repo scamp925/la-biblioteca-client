@@ -54,3 +54,8 @@ h3 {
 .book-cards {
   margin: 10px;
 }
+
+/* REMOVING BULLET POINTS FROM UNORDERED LISTS */
+ul {
+  list-style: none;
+}
