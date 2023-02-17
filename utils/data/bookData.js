@@ -62,9 +62,27 @@ const updateShelf = (bookId, shelfId, userId) => new Promise((resolve, reject) =
     .catch(reject);
 });
 
+const removeFromShelf = (bookId, shelfId, userId) => new Promise((resolve, reject) => {
+  const removeFromShelfObj = {
+    shelf_id: shelfId,
+    user_id: userId,
+  };
+  fetch(`${clientCredentials.databaseURL}/books/${bookId}/remove_from_shelf`, {
+    method: 'DELETE',
+    headers: {
+      Authorization: userId,
+      'content-type': 'application/json',
+    },
+    body: JSON.stringify(removeFromShelfObj),
+  })
+    .then(resolve)
+    .catch(reject);
+});
+
 export {
   getAllBooks,
   getSingleBook,
   addToShelf,
   updateShelf,
+  removeFromShelf,
 };
