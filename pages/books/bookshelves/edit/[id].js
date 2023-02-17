@@ -6,7 +6,7 @@ import BookShelfForm from '../../../../components/forms/BookShelfForm';
 import { useAuth } from '../../../../utils/context/authContext';
 import { getSingleBook } from '../../../../utils/data/bookData';
 
-export default function AddToShelfForm() {
+export default function UpdateShelfForm() {
   const router = useRouter();
   const { id } = router.query;
   const { user } = useAuth();
