@@ -34,7 +34,7 @@ const addToShelf = (bookId, shelfId, userId) => new Promise((resolve, reject) =>
     shelf_id: shelfId,
     user_id: userId,
   };
-  fetch(`${clientCredentials.databaseURL}/books/${bookId}/signup`, {
+  fetch(`${clientCredentials.databaseURL}/books/${bookId}/add_to_shelf`, {
     method: 'POST',
     headers: {
       Authorization: userId,
