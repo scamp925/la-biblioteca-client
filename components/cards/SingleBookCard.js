@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import React from 'react';
 import PropTypes from 'prop-types';
 import Image from 'react-bootstrap/Image';
@@ -20,15 +21,19 @@ function SingleBookCard({ bookObj, reviewObj }) {
             {bookObj.bookShelf ? <p><strong>{bookObj.title} is on your {bookObj.bookShelf} shelf</strong></p> : ''}
           </li>
           <li>
-            <Link passHref href={`/books/bookshelves/new/${bookObj.id}`}>
+            <Link passHref href={bookObj.bookShelf ? `/books/bookshelves/edit/${bookObj.id}` : `/books/bookshelves/new/${bookObj.id}`}>
               <Button variant="success">{bookObj.bookShelf ? 'Move to Another Shelf' : 'Add to My Books'}</Button>
             </Link>
           </li>
-          <li>
-            <Link passHref href={reviewObj.id ? `/reviews/edit/${reviewObj.id}` : `/reviews/new/${bookObj.id}`}>
-              <Button variant="outline-success">{reviewObj.user?.id === user.id ? 'Edit Your Review' : 'Rate This Book'}</Button>
-            </Link>
-          </li>
+          {bookObj.bookShelf === 'Read' ? (
+            <li>
+              <Link passHref href={reviewObj.id ? `/reviews/edit/${reviewObj.id}` : `/reviews/new/${bookObj.id}`}>
+                <Button variant="outline-success">{reviewObj.user?.id === user.id ? 'Edit Your Review' : 'Rate This Book'}</Button>
+              </Link>
+            </li>
+          ) : (
+            <p><em>Note: You will be able to rate this book and leave it a review once you have moved it to your "Read" shelf</em></p>
+          )}
         </ul>
       </aside>
       <main>

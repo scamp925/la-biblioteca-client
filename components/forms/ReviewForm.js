@@ -66,9 +66,7 @@ function ReviewForm({ reviewObj, bookId }) {
         </Form.Group>
         <div className="form-btns">
           <Button type="submit" variant="success">{reviewObj?.id ? 'Update' : 'Add'} My Review</Button>
-          <Button variant="danger" onClick={() => router.push(`/books/${bookId}`)}>
-            Nevermind
-          </Button>
+          <Button variant="danger" onClick={() => router.push(`/books/${bookId}`)}>Nevermind</Button>
         </div>
       </Form>
     </div>

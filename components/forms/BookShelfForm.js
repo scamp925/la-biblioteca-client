@@ -1,29 +1,44 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import Form from 'react-bootstrap/Form';
 import { Button } from 'react-bootstrap';
 import { useRouter } from 'next/router';
-import { addToShelf } from '../../utils/data/bookData';
+import { addToShelf, updateShelf } from '../../utils/data/bookData';
 import { useAuth } from '../../utils/context/authContext';
 
-function BookShelfForm({ bookId }) {
+function BookShelfForm({ bookObj }) {
   const [formInput, setFormInput] = useState('');
   const { user } = useAuth();
   const router = useRouter();
 
-  // const handleChange = (e) => {
-  //   const { name, value } = e.target;
-  //   setFormInput((prevState) => ({
-  //     ...prevState,
-  //     [name]: value,
-  //   }));
-  // };
+  useEffect(() => {
+    if (bookObj?.id) setFormInput(bookObj);
+  }, [bookObj, user]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    addToShelf(bookId, formInput.book_shelf, user.id).then(() => {
-      router.push(`/books/${bookId}`);
-    });
+    if (bookObj.bookShelf) {
+      if (formInput.bookShelf === 'Want to Read') {
+        formInput.bookShelf = 1;
+      } else if (formInput.bookShelf === 'Currently Reading') {
+        formInput.bookShelf = 2;
+      } else if (formInput.bookShelf === 'Read') {
+        formInput.bookShelf = 3;
+      }
+      updateShelf(bookObj.id, formInput.bookShelf, user.id)
+        .then(() => router.push(`/books/${bookObj.id}`));
+    } else {
+      if (formInput.bookShelf === 'Want to Read') {
+        formInput.bookShelf = 1;
+      } else if (formInput.bookShelf === 'Currently Reading') {
+        formInput.bookShelf = 2;
+      } else if (formInput.bookShelf === 'Read') {
+        formInput.bookShelf = 3;
+      }
+      addToShelf(bookObj.id, formInput.bookShelf, user.id).then(() => {
+        router.push(`/books/${bookObj.id}`);
+      });
+    }
   };
 
   return (
@@ -32,21 +47,19 @@ function BookShelfForm({ bookId }) {
       <div className="margin-top" />
       {['radio'].map((type) => (
         <div key={`inline-${type}`} className="mb-3">
-          {/* <Form.Label className="whereTo">SELECT A SHELF</Form.Label> */}
           <ul>
             <li>
               <Form.Check
-                className="want-to-read-option"
                 inline
-                label="Want To Read"
-                name="book_shelf"
+                label="Want to Read"
+                name="bookShelf"
                 type={type}
                 id={`inline-${type}-1`}
-                value="1"
-                checked={formInput.book_shelf === '1'}
+                value="Want to Read"
+                checked={formInput.bookShelf === 'Want to Read'}
                 onChange={(e) => setFormInput((prevState) => ({
                   ...prevState,
-                  book_shelf: e.target.value,
+                  bookShelf: e.target.value,
                 }))}
               />
             </li>
@@ -54,14 +67,14 @@ function BookShelfForm({ bookId }) {
               <Form.Check
                 inline
                 label="Currently Reading"
-                name="book_shelf"
+                name="bookShelf"
                 type={type}
                 id={`inline-${type}-2`}
-                value="2"
-                checked={formInput.book_shelf === '2'}
+                value="Currently Reading"
+                checked={formInput.bookShelf === 'Currently Reading'}
                 onChange={(e) => setFormInput((prevState) => ({
                   ...prevState,
-                  book_shelf: e.target.value,
+                  bookShelf: e.target.value,
                 }))}
               />
             </li>
@@ -69,14 +82,14 @@ function BookShelfForm({ bookId }) {
               <Form.Check
                 inline
                 label="Read"
-                name="book_shelf"
+                name="bookShelf"
                 type={type}
                 id={`inline-${type}-3`}
-                value="3"
-                checked={formInput.book_shelf === '3'}
+                value="Read"
+                checked={formInput.bookShelf === 'Read'}
                 onChange={(e) => setFormInput((prevState) => ({
                   ...prevState,
-                  book_shelf: e.target.value,
+                  bookShelf: e.target.value,
                 }))}
               />
             </li>
@@ -85,17 +98,18 @@ function BookShelfForm({ bookId }) {
         </div>
       ))}
       <div className="form-btn">
-        <Button type="submit" variant="success">Add To Shelf</Button>
+        <Button type="submit" variant="success">{bookObj?.id ? 'Move' : 'Add'} to Shelf</Button>
+        <Button variant="danger" onClick={() => router.push(`/books/${bookObj.id}`)}>Nevermind</Button>
       </div>
-      {/* <div className="form-btn">
-        <Button type="submit" variant="success">{eatOutObj?.firebaseKey ? 'Update' : 'Add'} Going Out Meal</Button>
-      </div> */}
     </Form>
   );
 }
 
 BookShelfForm.propTypes = {
-  bookId: PropTypes.string.isRequired,
+  bookObj: PropTypes.shape({
+    id: PropTypes.number,
+    bookShelf: PropTypes.string,
+  }).isRequired,
 };
 
 export default BookShelfForm;
