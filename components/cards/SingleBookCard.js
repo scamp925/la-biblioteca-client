@@ -20,7 +20,7 @@ function SingleBookCard({ bookObj, reviewObj }) {
             {bookObj.bookShelf ? <p><strong>{bookObj.title} is on your {bookObj.bookShelf} shelf</strong></p> : ''}
           </li>
           <li>
-            <Link passHref href={`/books/bookshelves/new/${bookObj.id}`}>
+            <Link passHref href={bookObj.bookShelf ? `/books/bookshelves/edit/${bookObj.id}` : `/books/bookshelves/new/${bookObj.id}`}>
               <Button variant="success">{bookObj.bookShelf ? 'Move to Another Shelf' : 'Add to My Books'}</Button>
             </Link>
           </li>
