@@ -12,14 +12,24 @@ function SingleBookCard({ bookObj, reviewObj }) {
   return (
     <div>
       <aside>
-        <Image src={bookObj.cover_image} alt={bookObj.title} width="240" height="350" />
-        {bookObj.bookShelf ? <p>On You {bookObj.bookShelf} Shelf</p> : ''}
-        <Link passHref href="/shelves/new">
-          <Button variant="success">{bookObj.bookShelf ? 'Move to Another Shelf' : 'Add to My Books'}</Button>
-        </Link>
-        <Link passHref href={reviewObj.id ? `/reviews/edit/${reviewObj.id}` : `/reviews/new/${bookObj.id}`}>
-          <Button variant="outline-success">{reviewObj.user?.id === user.id ? 'Edit Your Review' : 'Rate This Book'}</Button>
-        </Link>
+        <ul>
+          <li>
+            <Image src={bookObj.cover_image} alt={bookObj.title} width="240" height="350" />
+          </li>
+          <li>
+            {bookObj.bookShelf ? <p><strong>{bookObj.title} is on your {bookObj.bookShelf} shelf</strong></p> : ''}
+          </li>
+          <li>
+            <Link passHref href={`/books/bookshelves/new/${bookObj.id}`}>
+              <Button variant="success">{bookObj.bookShelf ? 'Move to Another Shelf' : 'Add to My Books'}</Button>
+            </Link>
+          </li>
+          <li>
+            <Link passHref href={reviewObj.id ? `/reviews/edit/${reviewObj.id}` : `/reviews/new/${bookObj.id}`}>
+              <Button variant="outline-success">{reviewObj.user?.id === user.id ? 'Edit Your Review' : 'Rate This Book'}</Button>
+            </Link>
+          </li>
+        </ul>
       </aside>
       <main>
         <h1>{bookObj.title}</h1>

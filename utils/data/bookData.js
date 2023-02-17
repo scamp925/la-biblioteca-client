@@ -11,8 +11,8 @@ const getAllBooks = () => new Promise((resolve, reject) => {
 });
 
 // GET SINGLE BOOK
-const getSingleBook = (bookId) => new Promise((resolve, reject) => {
-  fetch(`${dbUrl}/books/${bookId}`)
+const getSingleBook = (bookId, user) => new Promise((resolve, reject) => {
+  fetch(`${dbUrl}/books/${bookId}?user=${user}`)
     .then((response) => response.json())
     .then((data) => {
       resolve({
@@ -29,7 +29,25 @@ const getSingleBook = (bookId) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
+const addToShelf = (bookId, shelfId, userId) => new Promise((resolve, reject) => {
+  const addToShelfObj = {
+    shelf_id: shelfId,
+    user_id: userId,
+  };
+  fetch(`${clientCredentials.databaseURL}/books/${bookId}/add_to_shelf`, {
+    method: 'POST',
+    headers: {
+      Authorization: userId,
+      'content-type': 'application/json',
+    },
+    body: JSON.stringify(addToShelfObj),
+  })
+    .then(resolve)
+    .catch(reject);
+});
+
 export {
   getAllBooks,
   getSingleBook,
+  addToShelf,
 };
