@@ -46,8 +46,25 @@ const addToShelf = (bookId, shelfId, userId) => new Promise((resolve, reject) =>
     .catch(reject);
 });
 
+const updateShelf = (bookId, shelfId, userId) => new Promise((resolve, reject) => {
+  const addToShelfObj = {
+    shelf_id: shelfId,
+  };
+  fetch(`${clientCredentials.databaseURL}/books/${bookId}/update_shelf?user=${userId}`, {
+    method: 'PUT',
+    headers: {
+      Authorization: userId,
+      'content-type': 'application/json',
+    },
+    body: JSON.stringify(addToShelfObj),
+  })
+    .then(resolve)
+    .catch(reject);
+});
+
 export {
   getAllBooks,
   getSingleBook,
   addToShelf,
+  updateShelf,
 };
