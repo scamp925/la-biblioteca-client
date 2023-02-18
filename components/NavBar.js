@@ -27,13 +27,13 @@ export default function NavBar() {
                 <Nav.Link className="nav-text">Home</Nav.Link>
               </Link>
               <NavDropdown title="My Books" id="basic-nav-dropdown" className="nav-text">
-                <Link passHref href="/wantToRead">
+                <Link passHref href="/books/bookshelves/wantToRead">
                   <NavDropdown.Item>Want To Read</NavDropdown.Item>
                 </Link>
-                <Link passHref href="/currentlyReading">
+                <Link passHref href="/books/bookshelves/currentlyReading">
                   <NavDropdown.Item>Currently Reading</NavDropdown.Item>
                 </Link>
-                <Link passHref href="/read">
+                <Link passHref href="/books/bookshelves/read">
                   <NavDropdown.Item>Read</NavDropdown.Item>
                 </Link>
               </NavDropdown>

@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react';
 import BookSnippetCard from '../../../../components/cards/BookSnippetCard';
 import BookShelfForm from '../../../../components/forms/BookShelfForm';
 import { useAuth } from '../../../../utils/context/authContext';
-import { getSingleBook } from '../../../../utils/data/bookData';
+import { getAllBooks, getSingleBook } from '../../../../utils/data/bookData';
 
 export default function UpdateShelfForm() {
   const router = useRouter();
@@ -14,6 +14,10 @@ export default function UpdateShelfForm() {
 
   const singleBook = () => {
     getSingleBook(id, user.id).then(setBook);
+  };
+
+  const allBooks = () => {
+    getAllBooks(user.id);
   };
 
   useEffect(() => {
@@ -26,7 +30,7 @@ export default function UpdateShelfForm() {
         <BookSnippetCard bookObj={book} />
       </section>
       <section>
-        <BookShelfForm bookObj={book} />
+        <BookShelfForm bookObj={book} onUpdate={allBooks} />
       </section>
     </div>
   );
