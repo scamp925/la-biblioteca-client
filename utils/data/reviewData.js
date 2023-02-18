@@ -2,7 +2,7 @@ import { clientCredentials } from '../client';
 
 const dbUrl = clientCredentials.databaseURL;
 
-// GET ALL REVIEWS CARDS
+// GET ALL BOOK'S REVIEWS CARDS
 const getAllBookReviews = (bookId) => new Promise((resolve, reject) => {
   fetch(`${dbUrl}/reviews?book=${bookId}`)
     .then((response) => response.json())
@@ -79,10 +79,42 @@ const deleteReview = (reviewId) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
+const addReaction = (reviewId, reactionId) => new Promise((resolve, reject) => {
+  const reactionObj = {
+    reaction_id: reactionId,
+  };
+  fetch(`${clientCredentials.databaseURL}/reviews/${reviewId}/add_reaction`, {
+    method: 'POST',
+    headers: {
+      'content-type': 'application/json',
+    },
+    body: JSON.stringify(reactionObj),
+  })
+    .then(resolve)
+    .catch(reject);
+});
+
+const removeReaction = (reviewId, reactionId) => new Promise((resolve, reject) => {
+  const reactionObj = {
+    reaction_id: reactionId,
+  };
+  fetch(`${clientCredentials.databaseURL}/reviews/${reviewId}/remove_reaction`, {
+    method: 'DELETE',
+    headers: {
+      'content-type': 'application/json',
+    },
+    body: JSON.stringify(reactionObj),
+  })
+    .then(resolve)
+    .catch(reject);
+});
+
 export {
   getAllBookReviews,
   getSingleReview,
   createReview,
   updateReview,
   deleteReview,
+  addReaction,
+  removeReaction,
 };
