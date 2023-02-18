@@ -20,20 +20,23 @@ function Search({ books, setFilteredBooks }) {
   };
 
   return (
-    <div className="search">
-      <h5>Search and Browse Books</h5>
-      <InputGroup className="mb-3">
-        <Form.Control
-          placeholder="Title/Author"
-          aria-label="Title/Autho"
-          value={searchInput}
-          onChange={handleChange}
-          aria-describedby="basic-addon2"
-        />
-        <Button variant="secondary" onClick={resetInput}>
-          Reset Search
-        </Button>
-      </InputGroup>
+    <div>
+      <h5 className="center-text">Search and Browse Books</h5>
+      <div className="search">
+        <InputGroup className="mb-3">
+          <Form.Control
+            placeholder="Title/Author"
+            aria-label="Title/Autho"
+            value={searchInput}
+            onChange={handleChange}
+            aria-describedby="basic-addon2"
+          />
+          <Button variant="secondary" onClick={resetInput}>
+            Reset Search
+          </Button>
+        </InputGroup>
+      </div>
+
     </div>
   );
 }
