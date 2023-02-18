@@ -32,7 +32,7 @@ export default function BookShelves() {
           <h3>The Worlds Waiting For You</h3>
           <h2>Want To Read Shelf</h2>
         </header>
-        <div>
+        <div className="all-books-container">
           {booksOnWantToRead?.map((book) => (
             <BookCard key={book.id} bookObj={book} />
           ))}
@@ -47,7 +47,7 @@ export default function BookShelves() {
           <h3>The Worlds Waiting For You</h3>
           <h2>Want To Read Shelf</h2>
         </header>
-        <div>
+        <div className="all-books-container">
           {booksOnCurrentlyReading?.map((book) => (
             <BookCard key={book.id} bookObj={book} />
           ))}
@@ -62,7 +62,7 @@ export default function BookShelves() {
           <h3>The Worlds Waiting For You</h3>
           <h2>Want To Read Shelf</h2>
         </header>
-        <div>
+        <div className="all-books-container">
           {booksOnRead?.map((book) => (
             <BookCard key={book.id} bookObj={book} />
           ))}
