@@ -7,6 +7,7 @@ import { FaEdit, FaTrash } from 'react-icons/fa';
 import { useRouter } from 'next/router';
 import { useAuth } from '../../utils/context/authContext';
 import { deleteReview } from '../../utils/data/reviewData';
+import Reactions from '../Reactions';
 
 function ReviewCard({ reviewObj, onUpdate }) {
   const { user } = useAuth();
@@ -49,7 +50,9 @@ function ReviewCard({ reviewObj, onUpdate }) {
         </Link>
       </div>
       )}
-      {/* <div>{reviewObj.associated_reactions}</div> */}
+      <footer>
+        <Reactions reviewId={reviewObj.id} />
+      </footer>
     </div>
   );
 }
@@ -69,11 +72,11 @@ ReviewCard.propTypes = {
       profile_image: PropTypes.string,
       nickname: PropTypes.string,
     }),
-    associated_reactions: PropTypes.arrayOf(PropTypes.shape({
-      id: PropTypes.number,
-      label: PropTypes.string,
-      image_url: PropTypes.string,
-    })),
+    // associated_reactions: PropTypes.arrayOf(PropTypes.shape({
+    //   id: PropTypes.number,
+    //   label: PropTypes.string,
+    //   image_url: PropTypes.string,
+    // })),
   }).isRequired,
   onUpdate: PropTypes.func.isRequired,
 };

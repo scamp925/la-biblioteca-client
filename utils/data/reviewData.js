@@ -79,13 +79,15 @@ const deleteReview = (reviewId) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
-const addReaction = (reviewId, reactionId) => new Promise((resolve, reject) => {
+const addReaction = (reviewId, reactionId, userId) => new Promise((resolve, reject) => {
   const reactionObj = {
     reaction_id: reactionId,
+    user_id: userId,
   };
   fetch(`${clientCredentials.databaseURL}/reviews/${reviewId}/add_reaction`, {
     method: 'POST',
     headers: {
+      Authorization: userId,
       'content-type': 'application/json',
     },
     body: JSON.stringify(reactionObj),
@@ -94,13 +96,15 @@ const addReaction = (reviewId, reactionId) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
-const removeReaction = (reviewId, reactionId) => new Promise((resolve, reject) => {
+const removeReaction = (reviewId, reactionId, userId) => new Promise((resolve, reject) => {
   const reactionObj = {
     reaction_id: reactionId,
+    user_id: userId,
   };
   fetch(`${clientCredentials.databaseURL}/reviews/${reviewId}/remove_reaction`, {
     method: 'DELETE',
     headers: {
+      Authorization: userId,
       'content-type': 'application/json',
     },
     body: JSON.stringify(reactionObj),
