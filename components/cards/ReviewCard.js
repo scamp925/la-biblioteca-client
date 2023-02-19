@@ -72,11 +72,6 @@ ReviewCard.propTypes = {
       profile_image: PropTypes.string,
       nickname: PropTypes.string,
     }),
-    // associated_reactions: PropTypes.arrayOf(PropTypes.shape({
-    //   id: PropTypes.number,
-    //   label: PropTypes.string,
-    //   image_url: PropTypes.string,
-    // })),
   }).isRequired,
   onUpdate: PropTypes.func.isRequired,
 };
