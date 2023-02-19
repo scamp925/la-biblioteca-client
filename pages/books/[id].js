@@ -28,7 +28,7 @@ export default function SingleBook() {
   useEffect(() => {
     singleBook();
     getReviews();
-  }, [id]);
+  }, [id, book.bookShelf]);
 
   return (
     <div>
