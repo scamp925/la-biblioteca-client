@@ -26,8 +26,14 @@ body {
 }
 
 h3 {
-  margin-bottom: 10px;
+  font-size: xx-large;
+  margin: 10px 0;
   text-align: center;
+}
+
+/* REMOVING BULLET POINTS FROM UNORDERED LISTS */
+ul {
+  list-style: none;
 }
 
 /* NAVBAR */
@@ -71,7 +77,10 @@ h3 {
   width: 28%;
 }
 
-/* REMOVING BULLET POINTS FROM UNORDERED LISTS */
-ul {
-  list-style: none;
+/* MY BOOKS SHELVES */
+.shelf-name {
+  font-size: x-large;
+  margin: 30px;
+  text-align: center;
+  text-decoration: underline;
 }
