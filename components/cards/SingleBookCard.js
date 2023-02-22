@@ -17,8 +17,8 @@ function SingleBookCard({ bookObj, reviewObj }) {
           <li>
             <Image src={bookObj.cover_image} alt={bookObj.title} width="240" height="350" />
           </li>
-          <li>
-            {bookObj.bookShelf ? <p><strong>{bookObj.title} is on your {bookObj.bookShelf} shelf</strong></p> : ''}
+          <li className="book-on-shelf">
+            {bookObj.bookShelf ? <p><strong>{bookObj.title} is on your {bookObj.bookShelf.toUpperCase()} shelf</strong></p> : ''}
           </li>
           <li>
             <Link passHref href={bookObj.bookShelf ? `/books/bookshelves/edit/${bookObj.id}` : `/books/bookshelves/new/${bookObj.id}`}>
@@ -26,7 +26,7 @@ function SingleBookCard({ bookObj, reviewObj }) {
             </Link>
           </li>
           {bookObj.bookShelf === 'Read' ? (
-            <li>
+            <li className="rate-book-btn">
               <Link passHref href={reviewObj.id ? `/reviews/edit/${reviewObj.id}` : `/reviews/new/${bookObj.id}`}>
                 <Button variant="outline-success">{reviewObj.user?.id === user.id ? 'Edit Your Review' : 'Rate This Book'}</Button>
               </Link>

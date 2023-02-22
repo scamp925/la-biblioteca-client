@@ -89,6 +89,14 @@ aside {
   width: 20%;
 }
 
+.book-on-shelf {
+  margin-top: 10px;
+}
+
+.rate-book-btn {
+  margin-top: 10px;
+}
+
 .single-book-main-container {
   float: right;
   margin-right: 10%;
