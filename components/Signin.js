@@ -16,7 +16,7 @@ function Signin() {
         minWidth: '30rem',
       }}
     >
-      <h1 className="sign-in-logo">la<strong>biblioteca</strong></h1>
+      <h1 className="logo">la<strong>biblioteca</strong></h1>
       <h5>Unlock the door to countless worlds then fall through</h5>
       <Button type="button" size="lg" className="copy-btn" onClick={signIn}>
         Enter In

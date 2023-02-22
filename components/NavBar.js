@@ -16,7 +16,7 @@ export default function NavBar() {
     <Navbar collapseOnSelect expand="lg" className="color-nav" variant="light">
       <Container>
         <Link passHref href="/">
-          <Navbar.Brand><h1>la<strong>biblioteca</strong></h1></Navbar.Brand>
+          <Navbar.Brand><h1 className="logo">la<strong>biblioteca</strong></h1></Navbar.Brand>
         </Link>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
@@ -26,7 +26,7 @@ export default function NavBar() {
               <Link passHref href="/">
                 <Nav.Link className="nav-text">Home</Nav.Link>
               </Link>
-              <NavDropdown title="My Books" id="basic-nav-dropdown" className="nav-text">
+              <NavDropdown title="My Books" id="basic-nav-dropdown" className="nav-text nav-dropdown">
                 <Link passHref href="/books/bookshelves/wantToRead">
                   <NavDropdown.Item>Want To Read</NavDropdown.Item>
                 </Link>

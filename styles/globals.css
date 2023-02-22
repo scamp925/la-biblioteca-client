@@ -21,7 +21,7 @@ body {
   background-color: #ffffff;
 }
 
-.sign-in-logo {
+.logo {
   color: #3d2814;
 }
 
@@ -37,6 +37,10 @@ h3 {
 
 .nav-text {
   color: #3d2814;
+  font-weight: bold;
+}
+.nav-dropdown {
+  font-weight: bolder;
 }
 
 .link-border {
@@ -55,6 +59,7 @@ h3 {
   margin: 10px;
 }
 
+/* SEARCH BAR ELEMET */
 .search-container {
   display: flex;
   flex-direction: column;
