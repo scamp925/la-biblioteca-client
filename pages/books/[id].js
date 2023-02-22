@@ -31,10 +31,10 @@ export default function SingleBook() {
   }, [id, book.bookShelf]);
 
   return (
-    <div>
+    <div className="single-book-container">
       <SingleBookCard bookObj={book} reviewObj={findUserReview} />
-      <h4>Community Reviews</h4>
-      <div>
+      <h4 className="single-book-main-container">Community Reviews</h4>
+      <div className="single-book-main-container">
         {reviews.length === 0 && <><p>No Reviews Yet</p><p>Be the first to add one by clicking "Rate This Book" above.</p></>}
       </div>
       {reviews?.map((review) => (

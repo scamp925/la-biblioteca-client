@@ -36,12 +36,12 @@ function SingleBookCard({ bookObj, reviewObj }) {
           )}
         </ul>
       </aside>
-      <main>
-        <h1>{bookObj.title}</h1>
+      <main className="single-book-main-container">
+        <h1><strong>{bookObj.title}</strong></h1>
         <h2>{bookObj.author}</h2>
-        <p>{bookObj.description}</p>
-        <p>{bookObj.length} pages</p>
-        <p>First published {date.toLocaleDateString(undefined, dateOptions)}</p>
+        <p><em>{bookObj.description}</em></p>
+        <p className="smaller-text">{bookObj.length} pages</p>
+        <p className="smaller-text">First published {date.toLocaleDateString(undefined, dateOptions)}</p>
       </main>
     </div>
   );

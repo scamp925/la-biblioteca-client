@@ -22,7 +22,7 @@ function ReviewCard({ reviewObj, onUpdate }) {
     }
   };
   return (
-    <div>
+    <div className="single-book-main-container">
       <div>
         <Image src={reviewObj.user.profile_image} alt={reviewObj.user.nickname} width="200" height="200" />
         <p>{reviewObj.user.nickname}</p>

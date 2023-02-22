@@ -9,7 +9,7 @@ body {
 }
 
 a {
-  color: inherit;
+  color: #3d2814;
   text-decoration: none;
 }
 
@@ -39,14 +39,6 @@ ul {
 /* NAVBAR */
 .color-nav {
   background-color: #f4f2e9;
-}
-
-.nav-text {
-  color: #3d2814;
-  font-weight: bold;
-}
-.nav-dropdown {
-  font-weight: bolder;
 }
 
 .link-border {
@@ -83,4 +75,26 @@ ul {
   margin: 30px;
   text-align: center;
   text-decoration: underline;
+}
+
+/* SINGLE BOOK VIEW */
+.single-book-container {
+  margin-top: 20px;
+}
+
+aside {
+  margin-left: 10%;
+  position: fixed;
+  float: left;
+  width: 20%;
+}
+
+.single-book-main-container {
+  float: right;
+  margin-right: 10%;
+  width: 57%;
+}
+
+.smaller-text {
+  font-size: 14px;
 }
