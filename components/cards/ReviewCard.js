@@ -23,11 +23,11 @@ function ReviewCard({ reviewObj, onUpdate }) {
   };
   return (
     <div className="single-book-main-container">
-      <div>
-        <Image src={reviewObj.user.profile_image} alt={reviewObj.user.nickname} width="200" height="200" />
-        <p>{reviewObj.user.nickname}</p>
+      <div className="user-of-review">
+        <Image src={reviewObj.user.profile_image} alt={reviewObj.user.nickname} width="95" height="95" className="profile-picture-on-review" />
+        <p className="center-text">{reviewObj.user.nickname}</p>
       </div>
-      <div>
+      <div className="review-details-container">
         <Rating
           name="star-rating"
           allowHover={false}

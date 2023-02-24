@@ -109,6 +109,24 @@ aside {
 
 /* BOOK REVIEW CARDS */
 
+.profile-picture-on-review {
+  border-radius: 50%;
+}
+
+.user-of-review {
+  float: left;
+  width: 12%;
+}
+
+.center-text {
+  text-align: center;
+}
+
+.review-details-container {
+  float: right;
+  width: 85%;
+}
+
 /* REACTIONS */
 .reactions-container {
   width: 100%;

@@ -34,6 +34,7 @@ export default function SingleBook() {
     <div className="single-book-container">
       <SingleBookCard bookObj={book} reviewObj={findUserReview} />
       <h4 className="single-book-main-container">Community Reviews</h4>
+      <hr />
       <div className="single-book-main-container">
         {reviews.length === 0 && <><p>No Reviews Yet</p><p>Be the first to add one by clicking "Rate This Book" above.</p></>}
       </div>
