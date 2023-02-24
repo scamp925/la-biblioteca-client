@@ -108,6 +108,10 @@ aside {
 }
 
 /* BOOK REVIEW CARDS */
+.community-reviews-header {
+  margin-bottom: 25px;
+  text-decoration: underline;
+}
 
 .profile-picture-on-review {
   border-radius: 50%;
@@ -115,16 +119,17 @@ aside {
 
 .user-of-review {
   float: left;
-  width: 12%;
-}
-
-.center-text {
   text-align: center;
+  width: 12%;
 }
 
 .review-details-container {
   float: right;
-  width: 85%;
+  width: 82%;
+}
+
+.button-container {
+  float: right;
 }
 
 /* REACTIONS */
@@ -143,6 +148,7 @@ aside {
 
 .reactions-display {
   padding: 3px;
+  display: flex;
 }
 
 .display-reactions {

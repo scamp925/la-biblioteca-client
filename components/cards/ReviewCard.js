@@ -25,7 +25,7 @@ function ReviewCard({ reviewObj, onUpdate }) {
     <div className="single-book-main-container">
       <div className="user-of-review">
         <Image src={reviewObj.user.profile_image} alt={reviewObj.user.nickname} width="95" height="95" className="profile-picture-on-review" />
-        <p className="center-text">{reviewObj.user.nickname}</p>
+        <p>{reviewObj.user.nickname}</p>
       </div>
       <div className="review-details-container">
         <Rating
@@ -41,7 +41,7 @@ function ReviewCard({ reviewObj, onUpdate }) {
         <p>{reviewObj.content}</p>
       </div>
       {reviewObj.user.id === user.id && (
-      <div>
+      <div className="button-container">
         <Link passHref href={`/reviews/edit/${reviewObj.id}`}>
           <FaEdit size={26} />
         </Link>
@@ -50,7 +50,7 @@ function ReviewCard({ reviewObj, onUpdate }) {
         </Link>
       </div>
       )}
-      <footer>
+      <footer className="review-details-container">
         <Reactions reviewId={reviewObj.id} />
       </footer>
     </div>
