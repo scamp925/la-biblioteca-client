@@ -106,3 +106,33 @@ aside {
 .smaller-text {
   font-size: 14px;
 }
+
+/* BOOK REVIEW CARDS */
+
+/* REACTIONS */
+.reactions-container {
+  width: 100%;
+  display: flex;
+  margin-bottom: 45px;
+}
+
+.reactions-dropdown {
+  padding: 5px 10px;
+  background-color: #ffffff;
+  display: flex;
+  border-radius: 4px;
+}
+
+.reactions-display {
+  padding: 3px;
+}
+
+.display-reactions {
+  height: 20px;
+  width: 22px;
+  margin: 5px;
+}
+
+.no-show {
+  display: none;
+}
