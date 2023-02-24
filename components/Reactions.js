@@ -29,8 +29,6 @@ function Reactions({ reviewId }) {
     }
   };
 
-  console.warn('What is this', reactions);
-
   useEffect(() => {
     getReactions();
   }, [reviewId]);
