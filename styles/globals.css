@@ -183,3 +183,22 @@ ul {
 .author-size {
   font-size: x-large;
 }
+
+.shelf-text {
+  font-size: x-large;
+}
+
+.select-bookshelf-container {
+  display: flex;
+  justify-content: center;
+}
+
+.submit-btn {
+  margin-right: 10px;
+}
+
+.remove-from-self-btn {
+  display: flex;
+  justify-content: center;
+  margin-top: 8px;
+}

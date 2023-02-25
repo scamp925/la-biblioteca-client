@@ -7,7 +7,7 @@ function BookSnippetCard({ bookObj }) {
     <>
       <div className="book-snippet-details">
         <aside>
-          <Image src={bookObj?.cover_image} alt={bookObj?.title} width="160" height="270" />
+          <Image src={bookObj?.cover_image} alt={bookObj?.title} width="160" height="250" />
         </aside>
         <main className="book-title-and-author-container">
           <h1 className="title-size">{bookObj?.title}</h1>
