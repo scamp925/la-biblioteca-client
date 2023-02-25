@@ -161,7 +161,7 @@ ul {
   display: none;
 }
 
-/* SHELF FORM */
+/* BOOK SNIPPET DISPLAY */
 .book-snippet-details {
   display: flex;
   flex-direction: row;
@@ -176,18 +176,15 @@ ul {
   margin-left: 20px;
 }
 
-.title-size {
+.xx-large-text {
   font-size: xx-large;
 }
 
-.author-size {
+.x-large-text {
   font-size: x-large;
 }
 
-.shelf-text {
-  font-size: x-large;
-}
-
+/* SHELF FORM */
 .select-bookshelf-container {
   display: flex;
   justify-content: center;
@@ -201,4 +198,9 @@ ul {
   display: flex;
   justify-content: center;
   margin-top: 8px;
+}
+
+/* REVIEW FORM */
+.review-form-container {
+  text-align: center;
 }

@@ -49,10 +49,10 @@ function ReviewForm({ reviewObj, bookId }) {
   }, [reviewObj, user]);
 
   return (
-    <div>
+    <div className="review-form-container">
       <Form onSubmit={handleSubmit}>
         <div className="review-form-star-rating-div">
-          <h4>My Rating</h4>
+          <h4 className="xx-large-text">My Rating</h4>
           <Rating
             allowHover={false}
             size={50}
@@ -64,8 +64,8 @@ function ReviewForm({ reviewObj, bookId }) {
         <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
           <Form.Control as="textarea" rows={3} type="text" placeholder="Write a review" name="content" value={formInput.content} onChange={handleChange} />
         </Form.Group>
-        <div className="form-btns">
-          <Button type="submit" variant="success">{reviewObj?.id ? 'Update' : 'Add'} My Review</Button>
+        <div>
+          <Button type="submit" variant="success" className="submit-btn">{reviewObj?.id ? 'Update' : 'Add'} My Review</Button>
           <Button variant="danger" onClick={() => router.push(`/books/${bookId}`)}>Nevermind</Button>
         </div>
       </Form>

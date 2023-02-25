@@ -63,7 +63,7 @@ function BookShelfForm({ bookObj, onUpdate }) {
     <div>
       <div className="select-bookshelf-container">
         <Form onSubmit={handleSubmit}>
-          <h2 className="title mt-3 shelf-text">SELECT A SHELF</h2>
+          <h2 className="title mt-3 x-large-text">SELECT A SHELF</h2>
           <div className="margin-top" />
           {['radio'].map((type) => (
             <div key={`inline-${type}`} className="mb-3">
