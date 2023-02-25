@@ -204,3 +204,14 @@ ul {
 .review-form-container {
   text-align: center;
 }
+
+/* REGISTRATION FORM */
+.registration-form-container {
+  margin: auto;
+  margin-top: 30px;
+  width: 50%;
+}
+
+.register-btn {
+  float: right;
+}
