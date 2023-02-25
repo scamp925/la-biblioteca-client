@@ -20,7 +20,7 @@ function SingleBookCard({ bookObj, reviewObj }) {
           <li className="book-on-shelf">
             {bookObj.bookShelf ? <p><strong>{bookObj.title} is on your {bookObj.bookShelf.toUpperCase()} shelf</strong></p> : ''}
           </li>
-          <li>
+          <li className="shelf-btn">
             <Link passHref href={bookObj.bookShelf ? `/books/bookshelves/edit/${bookObj.id}` : `/books/bookshelves/new/${bookObj.id}`}>
               <Button variant="success">{bookObj.bookShelf ? 'Move to Another Shelf' : 'Add to My Books'}</Button>
             </Link>
@@ -32,7 +32,7 @@ function SingleBookCard({ bookObj, reviewObj }) {
               </Link>
             </li>
           ) : (
-            <p><em>Note: You will be able to rate this book and leave it a review once you have moved it to your "Read" shelf</em></p>
+            <p className="rate-book-btn"><em>Note: You will be able to rate this book and leave it a review once you have moved it to your "Read" shelf</em></p>
           )}
         </ul>
       </aside>

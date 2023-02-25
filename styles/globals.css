@@ -79,7 +79,7 @@ ul {
 
 /* SINGLE BOOK VIEW */
 .single-book-container {
-  margin-top: 20px;
+  margin-top: 10px;
 }
 
 .persistent-book-info {
@@ -90,12 +90,18 @@ ul {
 }
 
 .book-on-shelf {
-  margin-top: 10px;
+  margin-top: 2px;
+  margin-bottom: -10px;
 }
 
-.rate-book-btn {
-  margin-top: 10px;
+.shelf-btn {
+  margin-top: 15px;
+  margin-bottom: 10px;
 }
+
+/* .rate-book-btn {
+  margin-top: 5px;
+} */
 
 .single-book-main-container {
   float: right;
