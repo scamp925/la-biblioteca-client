@@ -12,7 +12,7 @@ function SingleBookCard({ bookObj, reviewObj }) {
   const dateOptions = { year: 'numeric', month: 'long', day: 'numeric' };
   return (
     <div>
-      <aside>
+      <aside className="persistent-book-info">
         <ul>
           <li>
             <Image src={bookObj.cover_image} alt={bookObj.title} width="240" height="350" />
