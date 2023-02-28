@@ -32,12 +32,13 @@ export default function BookShelves() {
           <h3>The Worlds Waiting For You</h3>
           <h2 className="shelf-name">Want to Read Shelf</h2>
         </header>
-        {booksOnWantToRead.length === 0 && <p className="all-books-container change-text">No Books On Your Want to Read Shelf... Not Yet</p>}
-        <div className="all-books-container">
-          {booksOnWantToRead?.map((book) => (
-            <BookCard key={book.id} bookObj={book} />
-          ))}
-        </div>
+        {booksOnWantToRead.length === 0 ? (<p className="all-books-container change-text">No Books On Your Want to Read Shelf... Not Yet</p>) : (
+          <div className="all-books-container">
+            {booksOnWantToRead?.map((book) => (
+              <BookCard key={book.id} bookObj={book} />
+            ))}
+          </div>
+        )}
       </div>
     );
   }
