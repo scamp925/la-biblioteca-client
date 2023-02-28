@@ -77,6 +77,12 @@ ul {
   text-decoration: underline;
 }
 
+.change-text {
+  color: red;
+  font-size: 45px;
+  margin-top: 90px;
+}
+
 /* SINGLE BOOK VIEW */
 .single-book-container {
   margin-top: 10px;
