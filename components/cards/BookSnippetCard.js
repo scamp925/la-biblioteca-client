@@ -5,13 +5,13 @@ import PropTypes from 'prop-types';
 function BookSnippetCard({ bookObj }) {
   return (
     <>
-      <div>
+      <div className="book-snippet-details">
         <aside>
-          <Image src={bookObj?.cover_image} alt={bookObj?.title} width="240" height="350" />
+          <Image src={bookObj?.cover_image} alt={bookObj?.title} width="160" height="250" />
         </aside>
-        <main>
-          <h1>{bookObj?.title}</h1>
-          <h2>{bookObj?.author}</h2>
+        <main className="book-title-and-author-container">
+          <h1 className="xx-large-text">{bookObj?.title}</h1>
+          <h2 className="x-large-text">{bookObj?.author}</h2>
         </main>
       </div>
       <hr />

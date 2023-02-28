@@ -26,20 +26,21 @@ function RegisterForm({ user, updateUser }) {
   return (
     <>
       <h3>Complete Your Account Registration</h3>
-      <Form onSubmit={handleSubmit}>
-        <Form.Group className="mb-3" controlId="formBasicEmail">
-          <Form.Label className="text">What's Your Nickname?</Form.Label>
-          <Form.Control name="nickname" required placeholder="e.g. Cool_Kats" onChange={({ target }) => setFormData((prev) => ({ ...prev, [target.name]: target.value }))} />
-          <Form.Text className="text-muted">***Username MUST be different from your first and last name</Form.Text>
-          <div />
-          <br />
-          <Form.Label className="text">Profile Image</Form.Label>
-          <Form.Control name="profileImage" required placeholder="Image URL" onChange={({ target }) => setFormData((prev) => ({ ...prev, [target.name]: target.value }))} />
-        </Form.Group>
-        <Button variant="dark" type="submit">
-          Register for Account
-        </Button>
-      </Form>
+      <div className="registration-form-container">
+        <Form onSubmit={handleSubmit}>
+          <Form.Group className="mb-3" controlId="formBasicEmail">
+            <Form.Label className="text">What's Your Nickname?</Form.Label>
+            <Form.Control name="nickname" required placeholder="e.g. Cool_Kats" onChange={({ target }) => setFormData((prev) => ({ ...prev, [target.name]: target.value }))} />
+            <div />
+            <br />
+            <Form.Label className="text">Profile Image</Form.Label>
+            <Form.Control name="profileImage" required placeholder="Image URL" onChange={({ target }) => setFormData((prev) => ({ ...prev, [target.name]: target.value }))} />
+          </Form.Group>
+          <Button variant="dark" type="submit" className="register-btn">
+            Register for Account
+          </Button>
+        </Form>
+      </div>
     </>
   );
 }

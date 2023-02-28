@@ -30,14 +30,15 @@ export default function BookShelves() {
       <div>
         <header>
           <h3>The Worlds Waiting For You</h3>
-          <h2>Want To Read Shelf</h2>
+          <h2 className="shelf-name">Want to Read Shelf</h2>
         </header>
-        {booksOnWantToRead.length === 0 && <p>No Books On Your Want to Read Shelf... Not Yet</p>}
-        <div>
-          {booksOnWantToRead?.map((book) => (
-            <BookCard key={book.id} bookObj={book} />
-          ))}
-        </div>
+        {booksOnWantToRead.length === 0 ? (<p className="all-books-container change-text">No Books On Your Want to Read Shelf... Not Yet</p>) : (
+          <div className="all-books-container">
+            {booksOnWantToRead?.map((book) => (
+              <BookCard key={book.id} bookObj={book} />
+            ))}
+          </div>
+        )}
       </div>
     );
   }
@@ -46,10 +47,10 @@ export default function BookShelves() {
       <div>
         <header>
           <h3>The Worlds Where You Are Currently Living</h3>
-          <h2>Currently Reading Shelf</h2>
+          <h2 className="shelf-name">Currently Reading Shelf</h2>
         </header>
-        {booksOnCurrentlyReading.length === 0 && <p>No Books On Your Currently Reading Shelf... Not Yet</p>}
-        <div>
+        {booksOnCurrentlyReading.length === 0 && <p className="all-books-container change-text">No Books On Your Currently Reading Shelf... Not Yet</p>}
+        <div className="all-books-container">
           {booksOnCurrentlyReading?.map((book) => (
             <BookCard key={book.id} bookObj={book} />
           ))}
@@ -62,10 +63,10 @@ export default function BookShelves() {
       <div>
         <header>
           <h3>The Worlds Where Part of You Will Live Forver</h3>
-          <h2>Read Shelf</h2>
+          <h2 className="shelf-name">Read Shelf</h2>
         </header>
-        {booksOnRead.length === 0 && <p>No Books On Your Read Shelf... Not Yet</p>}
-        <div>
+        {booksOnRead.length === 0 && <p className="all-books-container change-text">No Books On Your Read Shelf... Not Yet</p>}
+        <div className="all-books-container">
           {booksOnRead?.map((book) => (
             <BookCard key={book.id} bookObj={book} />
           ))}

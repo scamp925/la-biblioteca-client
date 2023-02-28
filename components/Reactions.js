@@ -45,13 +45,13 @@ function Reactions({ reviewId }) {
           <Popover>
             <Popover.Body className="reactions-dropdown">
               {reactions?.map((reaction) => (
-                <input className="reactions" type="image" key={reaction.id} onClick={handleClick} value={reaction.reaction_clicked} id={reaction.id} src={reaction.image_url} />
+                <input className="reactions-display" type="image" key={reaction.id} onClick={handleClick} value={reaction.reaction_clicked} id={reaction.id} src={reaction.image_url} />
               ))}
             </Popover.Body>
           </Popover>
             )}
       >
-        <Button variant="secondary">Reactions</Button>
+        <Button variant="outline-dark">Reactions</Button>
       </OverlayTrigger>
       <div className="reactions-display">
         {reactions?.map((reaction) => (

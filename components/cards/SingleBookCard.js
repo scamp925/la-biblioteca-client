@@ -12,36 +12,36 @@ function SingleBookCard({ bookObj, reviewObj }) {
   const dateOptions = { year: 'numeric', month: 'long', day: 'numeric' };
   return (
     <div>
-      <aside>
+      <aside className="persistent-book-info">
         <ul>
           <li>
             <Image src={bookObj.cover_image} alt={bookObj.title} width="240" height="350" />
           </li>
-          <li>
-            {bookObj.bookShelf ? <p><strong>{bookObj.title} is on your {bookObj.bookShelf} shelf</strong></p> : ''}
+          <li className="book-on-shelf">
+            {bookObj.bookShelf ? <p><strong>{bookObj.title} is on your {bookObj.bookShelf.toUpperCase()} shelf</strong></p> : ''}
           </li>
-          <li>
+          <li className="shelf-btn">
             <Link passHref href={bookObj.bookShelf ? `/books/bookshelves/edit/${bookObj.id}` : `/books/bookshelves/new/${bookObj.id}`}>
               <Button variant="success">{bookObj.bookShelf ? 'Move to Another Shelf' : 'Add to My Books'}</Button>
             </Link>
           </li>
           {bookObj.bookShelf === 'Read' ? (
-            <li>
+            <li className="rate-book-btn">
               <Link passHref href={reviewObj.id ? `/reviews/edit/${reviewObj.id}` : `/reviews/new/${bookObj.id}`}>
                 <Button variant="outline-success">{reviewObj.user?.id === user.id ? 'Edit Your Review' : 'Rate This Book'}</Button>
               </Link>
             </li>
           ) : (
-            <p><em>Note: You will be able to rate this book and leave it a review once you have moved it to your "Read" shelf</em></p>
+            <p className="rate-book-btn"><em>Note: You will be able to rate this book and leave it a review once you have moved it to your "Read" shelf</em></p>
           )}
         </ul>
       </aside>
-      <main>
-        <h1>{bookObj.title}</h1>
+      <main className="single-book-main-container">
+        <h1><strong>{bookObj.title}</strong></h1>
         <h2>{bookObj.author}</h2>
-        <p>{bookObj.description}</p>
-        <p>{bookObj.length} pages</p>
-        <p>First published {date.toLocaleDateString(undefined, dateOptions)}</p>
+        <p><em>{bookObj.description}</em></p>
+        <p className="smaller-text">{bookObj.length} pages</p>
+        <p className="smaller-text">First published {date.toLocaleDateString(undefined, dateOptions)}</p>
       </main>
     </div>
   );

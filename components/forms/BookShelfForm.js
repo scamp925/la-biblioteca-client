@@ -61,73 +61,76 @@ function BookShelfForm({ bookObj, onUpdate }) {
 
   return (
     <div>
-      <Form onSubmit={handleSubmit}>
-        <h2 className="title mt-3">SELECT A SHELF</h2>
-        <div className="margin-top" />
-        {['radio'].map((type) => (
-          <div key={`inline-${type}`} className="mb-3">
-            <ul>
-              <li>
-                <Form.Check
-                  inline
-                  label="Want to Read"
-                  name="bookShelf"
-                  type={type}
-                  id={`inline-${type}-1`}
-                  value="Want to Read"
-                  checked={formInput.bookShelf === 'Want to Read'}
-                  onChange={(e) => setFormInput((prevState) => ({
-                    ...prevState,
-                    bookShelf: e.target.value,
-                  }))}
-                />
-              </li>
-              <li>
-                <Form.Check
-                  inline
-                  label="Currently Reading"
-                  name="bookShelf"
-                  type={type}
-                  id={`inline-${type}-2`}
-                  value="Currently Reading"
-                  checked={formInput.bookShelf === 'Currently Reading'}
-                  onChange={(e) => setFormInput((prevState) => ({
-                    ...prevState,
-                    bookShelf: e.target.value,
-                  }))}
-                />
-              </li>
-              <li>
-                <Form.Check
-                  inline
-                  label="Read"
-                  name="bookShelf"
-                  type={type}
-                  id={`inline-${type}-3`}
-                  value="Read"
-                  checked={formInput.bookShelf === 'Read'}
-                  onChange={(e) => setFormInput((prevState) => ({
-                    ...prevState,
-                    bookShelf: e.target.value,
-                  }))}
-                />
-              </li>
-            </ul>
-
+      <div className="select-bookshelf-container">
+        <Form onSubmit={handleSubmit}>
+          <h2 className="title mt-3 x-large-text">SELECT A SHELF</h2>
+          <div className="margin-top" />
+          {['radio'].map((type) => (
+            <div key={`inline-${type}`} className="mb-3">
+              <ul>
+                <li>
+                  <Form.Check
+                    inline
+                    label="Want to Read"
+                    name="bookShelf"
+                    type={type}
+                    id={`inline-${type}-1`}
+                    value="Want to Read"
+                    checked={formInput.bookShelf === 'Want to Read'}
+                    onChange={(e) => setFormInput((prevState) => ({
+                      ...prevState,
+                      bookShelf: e.target.value,
+                    }))}
+                  />
+                </li>
+                <li>
+                  <Form.Check
+                    inline
+                    label="Currently Reading"
+                    name="bookShelf"
+                    type={type}
+                    id={`inline-${type}-2`}
+                    value="Currently Reading"
+                    checked={formInput.bookShelf === 'Currently Reading'}
+                    onChange={(e) => setFormInput((prevState) => ({
+                      ...prevState,
+                      bookShelf: e.target.value,
+                    }))}
+                  />
+                </li>
+                <li>
+                  <Form.Check
+                    inline
+                    label="Read"
+                    name="bookShelf"
+                    type={type}
+                    id={`inline-${type}-3`}
+                    value="Read"
+                    checked={formInput.bookShelf === 'Read'}
+                    onChange={(e) => setFormInput((prevState) => ({
+                      ...prevState,
+                      bookShelf: e.target.value,
+                    }))}
+                  />
+                </li>
+              </ul>
+            </div>
+          ))}
+          <div>
+            <Button type="submit" variant="success" className="submit-btn">{bookObj?.bookShelf ? 'Move' : 'Add'} to Shelf</Button>
+            <Button variant="danger" onClick={() => router.push(`/books/${bookObj.id}`)}>Nevermind</Button>
           </div>
-        ))}
-        <div className="form-btn">
-          <Button type="submit" variant="success">{bookObj?.bookShelf ? 'Move' : 'Add'} to Shelf</Button>
-          <Button variant="danger" onClick={() => router.push(`/books/${bookObj.id}`)}>Nevermind</Button>
-        </div>
-      </Form>
-      {bookObj.bookShelf && (
-      <section>
-        <Link passHref href={`/books/${bookObj.id}`}>
-          <Button variant="outline-danger" onClick={removeBookFromMyBooks}>Remove from My Books</Button>
-        </Link>
-      </section>
-      )}
+        </Form>
+      </div>
+      <div className="remove-from-self-btn">
+        {bookObj.bookShelf && (
+        <section>
+          <Link passHref href={`/books/${bookObj.id}`}>
+            <Button variant="outline-danger" onClick={removeBookFromMyBooks}>Remove from My Books</Button>
+          </Link>
+        </section>
+        )}
+      </div>
     </div>
   );
 }
