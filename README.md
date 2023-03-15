@@ -1,4 +1,4 @@
-# La Biblioteca: Server Side
+# La Biblioteca: Client Side
 
 [Walkthrough Video of La Biblioteca (3 mins)](https://www.loom.com/share/a18b70cc76444b25a73f45a6afb99fd0)
 
@@ -10,8 +10,8 @@
 - [Project Overview](#project-overview)
 - [MVP Features](#mvp-features)
 - [Stretch Features](#stretch-features)
-- [Try La Biblioteca Out](#try-plated-out)
-- [Planning for La Biblioteca](#planning-for-plated)
+- [Try La Biblioteca Out](#try-la-biblioteca-out)
+- [Planning for La Biblioteca](#planning)
 - [Tech Stacks for La Biblioteca](#tech-stacks)
 
 ## Project Overview
@@ -133,21 +133,5 @@ npm run dev
 <a href="https://getbootstrap.com/docs/3.4/javascript/" target="_blank"><img style="margin: 10px" src="https://profilinator.rishav.dev/skills-assets/bootstrap-plain.svg" alt="Bootstrap" height="50" /></a>  
 <a href="https://www.figma.com/" target="_blank"><img style="margin: 10px" src="https://profilinator.rishav.dev/skills-assets/figma-icon.svg" alt="Figma" height="50" /></a>  
 </div>
-
-### Backend
-<div align="center"> 
-<a href="https://www.python.org/" target="_blank"><img style="margin: 10px" src="https://profilinator.rishav.dev/skills-assets/python-original.svg" alt="Python" height="50" /></a>  
-<a href="https://www.djangoproject.com/" target="_blank"><img style="margin: 10px" src="https://profilinator.rishav.dev/skills-assets/django-original.svg" alt="Django" height="50" /></a>  
-<a href="hhttps://www.sqlite.org/index.html" target="_blank"><img style="margin: 10px" src="https://user-images.githubusercontent.com/33158051/103467186-7b6a8900-4d1a-11eb-9907-491064bc8458.png" alt="SQLite" height="50" /></a>
-</div>
-
-<ul>
-<li>Fixtures</li>
-<li>ORM & SQL Queries</li>
-<li>Models</li>
-<li>API Endpoint Views</li>
-<li>User authentication using authtoken</li>
-<li>URL routing & action decorators</li>
-</ul>
 
 [Scroll to top](#la-biblioteca-server-side)
