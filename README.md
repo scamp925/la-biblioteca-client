@@ -82,20 +82,31 @@ To Implement:
 
 [Scroll to top](#la-biblioteca-server-side)
 ## Try La Biblioteca Out
-*You've found my client side repo. Yahoo! You can check out my server side repo [here](https://github.com/scamp925/la-biblioteca-server). Instructions on how to get the backend on your local machine can be found in the repo's ReadMe.*
+*You've found my client side repo. Yahoo! You can check out my server side repo [here](https://github.com/scamp925/la-biblioteca-server). **In order for the client side to work, you need to have the server side running on your local machine.** Instructions on how to get the backend on your local machine can be found in the repo's ReadMe.*
 
 ### How to run frontend locally
+
 1. Clone La Biblioteca Client to your local machine
 ``` bash
 git@github.com:scamp925/la-biblioteca-client.git
 ```
 
-2. Set up a [Firebase](https://firebase.google.com/) project - Here's how: [Firebase Instructions](/Firebase.md)
+2. Move into directory
+``` bash
+cd la-biblioteca-client
+```
 
-3. Once in Plated's code, create a .env file at the root of the project
-4. Copy the environmental variables from Firebase and Paste them as the properties of the keys found in your newly created .env file
-5. Import sample data found in data folder in Plated to Realtime Database in your Firebase project
-![finding-sample-data](https://user-images.githubusercontent.com/98675776/191889055-468ebbbd-3143-4362-8adf-99668352d15c.png)
+3. Once in La Biblioteca's code, create a .env file at the root of the project. Place the following properties into the file:
+```
+NEXT_PUBLIC_FIREBASE_API_KEY=""
+NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN=""
+NEXT_PUBLIC_DATABASE_URL="http://localhost:8000"
+```
+
+4. Set up a [Firebase](https://firebase.google.com/) project - Here's how: [Firebase Instructions](/Firebase.md)
+
+5. Copy the values of environmental variables from Firebase and paste them as the values of the keys from the code snippet in step 3. Make sure each value is wrapped by the quotes.
+
 6. While in the root directory and from your command line, run
 ``` bash
 npm install or npm i
@@ -104,11 +115,13 @@ npm install or npm i
 ``` bash
 npm run prepare
 ```
-8. To start Plated, run
+8. To start La Biblioteca, run
 ``` bash
 npm run dev
 ```
-9. Open http://localhost:3000 with your browser and enjoy Plated!
+9. Open http://localhost:3000 with your browser
+
+10. Enjoy La Biblioteca!
 
 [Scroll to top](#la-biblioteca-server-side)
 
