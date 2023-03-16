@@ -86,7 +86,7 @@ To Implement:
 
 ### How to run frontend locally and setup Firebase authentication
 
-1. Set up a [Firebase](https://firebase.google.com/) project then add environmental variables from Firebase to La Biblioteca - Here's how: [Firebase Setup & Authentication](https://www.loom.com/share/163ffe1539bb482196efa713ed6231e9)
+1. Set up a [Firebase](https://firebase.google.com/) project - Here's how: [Firebase Setup & Authentication](https://www.loom.com/share/163ffe1539bb482196efa713ed6231e9)
 
 2. Clone La Biblioteca Client to your local machine
 ``` bash
@@ -120,7 +120,7 @@ npm run prepare
 npm run dev
 ```
 
-9. Click http://localhost:3000 in the terminal to open the brower
+9. Click http://localhost:3000 in the terminal to open the browser
 
 ![Snapshot of terminal](https://user-images.githubusercontent.com/98675776/225498275-67a8a00f-fc5f-47e0-bff7-b087f53729d9.png)
 
