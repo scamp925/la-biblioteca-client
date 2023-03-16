@@ -84,28 +84,28 @@ To Implement:
 ## Try La Biblioteca Out
 *You've found my client side repo. Yahoo! You can check out my server side repo [here](https://github.com/scamp925/la-biblioteca-server). **In order for the client side to work, you need to have the server side running on your local machine.** Instructions on how to get the backend on your local machine can be found in the repo's ReadMe.*
 
-### How to run frontend locally
+### How to run frontend locally and setup Firebase authentication
 
-1. Clone La Biblioteca Client to your local machine
+1. Set up a [Firebase](https://firebase.google.com/) project then add environmental variables from Firebase to La Biblioteca - Here's how: [Firebase Setup & Authentication](https://www.loom.com/share/163ffe1539bb482196efa713ed6231e9)
+
+2. Clone La Biblioteca Client to your local machine
 ``` bash
 git@github.com:scamp925/la-biblioteca-client.git
 ```
 
-2. Move into directory
+3. Move into directory
 ``` bash
 cd la-biblioteca-client
 ```
 
-3. Once in La Biblioteca's code, create a .env file at the root of the project. Place the following properties into the file:
+4. Once in La Biblioteca's code, create a .env file at the root of the project. Place the following properties into the file:
 ```
 NEXT_PUBLIC_FIREBASE_API_KEY=""
 NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN=""
 NEXT_PUBLIC_DATABASE_URL="http://localhost:8000"
 ```
 
-4. Set up a [Firebase](https://firebase.google.com/) project - Here's how: [Firebase Instructions](/Firebase.md)
-
-5. Copy the values of environmental variables from Firebase and paste them as the values of the keys from the code snippet in step 3. Make sure each value is wrapped by the quotes.
+5. The last portion of the Firebase walkthrough from step 1 highlights where to find the values to put in the empty strings in the code snippet of step 4. From Firebase, copy the values and paste them into the empty strings of the respective keys located in the .env file.
 
 6. While in the root directory and from your command line, run
 ``` bash
@@ -119,7 +119,10 @@ npm run prepare
 ``` bash
 npm run dev
 ```
-9. Open http://localhost:3000 with your browser
+
+9. Click http://localhost:3000 in the terminal to open the brower
+
+![Snapshot of terminal](https://user-images.githubusercontent.com/98675776/225498275-67a8a00f-fc5f-47e0-bff7-b087f53729d9.png)
 
 10. Enjoy La Biblioteca!
 
