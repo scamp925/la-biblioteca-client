@@ -74,9 +74,9 @@ Completed:
 
 * CSS styling for entire application
 
-* Average star rating of a single book displayed on the single book view
+Coming soon:
 
-To Implement:
+* Average star rating of a single book displayed on the single book view
 
 * Yearly Book Challenge: Allow user to set the number of books they want to complete within a year's time
 
