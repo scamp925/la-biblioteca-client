@@ -80,6 +80,8 @@ Coming soon:
 
 * Yearly Book Challenge: Allow user to set the number of books they want to complete within a year's time
 
+* Admin view of La Biblioteca that allows for admins of the website to add books to the database
+
 [Scroll to top](#la-biblioteca-server-side)
 ## Try La Biblioteca Out
 *You've found my client side repo. Yahoo! You can check out my server side repo [here](https://github.com/scamp925/la-biblioteca-server). **In order for the client side to work, you need to have the server side running on your local machine.** Instructions on how to get the backend on your local machine can be found in the repo's ReadMe.*
